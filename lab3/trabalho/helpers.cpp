@@ -1,4 +1,13 @@
-#include "helpers.h"
+/** Trabalho 1 - Linguagens de Programacao EL1
+ * Periodo: 2021.1
+ * Autor: Ricardo Santos Siqueira
+ * DRE: 118167558
+ * Arquivo: helperes.cpp
+ * Descricao: Implementacao das funcoes helpers para ajudar a popular
+ *            o programa com dados fakes aleatorios.
+ */
+
+#include "helpers.hpp"
 
 // Retorna um vetor de inteiros aleatorios utilizado para
 // popular os obitos de cada estado.
