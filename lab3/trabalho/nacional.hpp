@@ -16,7 +16,6 @@ public:
   Nacional(string, vector<Estadual>);
   // Getters
   string getNome();
-  vector<Estadual> getEstados();
 
   // Imprime a media movel dos estados do objeto para os ultimos n dias,
   // default = 3
@@ -24,6 +23,9 @@ public:
 
   // Imprime a media movel do pais para os ultimos n dias, default = 3
   void printMediaMovelNacional(short unsigned int = 3);
+
+  // Imprime os estados agrupados por Alta, Estabilidade e Baixa
+  void printAltaEstabilidadeBaixa();
 
 private:
   // Campos privados da classe

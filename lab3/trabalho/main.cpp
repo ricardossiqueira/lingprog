@@ -49,6 +49,10 @@ int main()
       brasil.printMediaMovelPorEstado();
       break;
 
+    case 2:
+      brasil.printAltaEstabilidadeBaixa();
+      break;
+
     default:
       cout << "Opcao invalida!" << endl;
       break;
