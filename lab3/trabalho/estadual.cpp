@@ -29,7 +29,8 @@ float Estadual::mediaMovel(unsigned short int dias)
 
   if (dias < 1 || dias > 30)
   {
-    cout << "Dias deve ser um valor entre 1 e 30!" << endl;
+    cout << "Dias deve ser um valor entre 1 e 30!\n"
+         << endl;
     return media;
   }
 
