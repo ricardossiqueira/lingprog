@@ -55,7 +55,7 @@ vector<Estadual> populateBrazilStates()
       "SE",
       "TO"};
 
-  for (unsigned short int i = 0; i < 27; i++)
+  for (unsigned short int i = 0; i < siglas.size(); i++)
   {
     Estadual estado = Estadual(siglas.at(i), populateRandomIntVector());
     estados.push_back(estado);
