@@ -62,6 +62,7 @@ int main()
       break;
 
     case 5:
+      brasil.printTotalDeObitos();
       break;
 
     case 6:

@@ -33,6 +33,8 @@ public:
   // Imprime o estado com maior alta e o estado com maior baixa
   void printMaiorAltaEMaiorBaixa();
 
+  void printTotalDeObitos();
+
 private:
   // Campos privados da classe
   string _nome;

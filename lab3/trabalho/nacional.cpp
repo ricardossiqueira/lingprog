@@ -148,3 +148,43 @@ void Nacional::printMaiorAltaEMaiorBaixa()
        << "] "
        << endl;
 }
+
+void Nacional::printTotalDeObitos()
+{
+  unsigned int totalObitosNacional = 0;
+
+  cout << "\n Estado | Obitos " << endl;
+
+  for (unsigned short int i = 0; i < _estados.size(); i++)
+  {
+    Estadual estado = _estados.at(i);
+    unsigned int totalObitosEstado = 0;
+    vector<int> obitosEstado = estado.getObitos();
+
+    for (unsigned short int j = 0; j < obitosEstado.size(); j++)
+    {
+      totalObitosEstado += obitosEstado.at(j);
+    }
+
+    totalObitosNacional += totalObitosEstado;
+
+    cout
+        << " "
+        << estado.getNome()
+        << "     | "
+        << totalObitosEstado
+        << endl;
+  }
+
+  cout
+      << "\n"
+      << " Pais    | Obitos  "
+      << "\n"
+      << "---------|---------"
+      << "\n"
+      << " "
+      << Nacional::getNome()
+      << "  | "
+      << totalObitosNacional
+      << endl;
+}
