@@ -25,7 +25,13 @@ public:
   void printMediaMovelNacional(short unsigned int = 3);
 
   // Imprime os estados agrupados por Alta, Estabilidade e Baixa
-  void printAltaEstabilidadeBaixa();
+  void printAltaEstabilidadeBaixaPorEstado();
+
+  // Imprime o status do pais, se em Alta, Estabilidade ou Baixa
+  void printAltaEstabilidadeBaixaNacional();
+
+  // Imprime o estado com maior alta e o estado com maior baixa
+  void printMaiorAltaEMaiorBaixa();
 
 private:
   // Campos privados da classe

@@ -3,8 +3,8 @@
  * Autor: Ricardo Santos Siqueira
  * DRE: 118167558
  * Arquivo: nacional.cpp
- * Descricao: Implementacao da classe Nacional responsavel por cpnfigurar
- *            um novo pais e lidar com as respectivas funcoes.
+ * Descricao: Implementacao da classe Nacional responsavel por configurar um
+ *            novo pais e lidar com as respectivas funcoes.
  */
 
 #include "nacional.hpp"
@@ -38,22 +38,25 @@ void Nacional::printMediaMovelPorEstado(short unsigned int dias)
 void Nacional::printMediaMovelNacional(short unsigned int dias)
 {
   float media = 0.0;
+
   // Arredonda a saida para 2 casas decimais
   cout.precision(4);
   cout << " Pais    | Media Movel " << endl;
   cout << "---------|-------------" << endl;
   cout << " " << getNome();
   cout << "  | ";
+
   for (unsigned short int i = 0; i < _estados.size(); i++)
   {
     Estadual estado = _estados.at(i);
     media += estado.mediaMovel(dias);
   }
+
   cout << media / _estados.size() << "\n"
        << endl;
 }
 
-void Nacional::printAltaEstabilidadeBaixa()
+void Nacional::printAltaEstabilidadeBaixaPorEstado()
 {
   vector<Estadual> alta, estabilidade, baixa;
 
@@ -89,4 +92,59 @@ void Nacional::printAltaEstabilidadeBaixa()
     cout << baixa.at(i).getNome() << " ";
   }
   cout << endl;
+}
+
+void Nacional::printAltaEstabilidadeBaixaNacional()
+{
+  float taxa;
+
+  // Arredonda a saida para 2 casas decimais
+  cout.precision(4);
+
+  for (unsigned short int i = 0; i < _estados.size(); i++)
+  {
+    Estadual estado = _estados.at(i);
+    taxa += estado.mediaMovel(1) / estado.mediaMovel(2) / _estados.size();
+  }
+
+  cout << " " << getNome() << " [" << taxa << " ] - ";
+  if (taxa > 1.1)
+    cout << "Alta";
+  else if (taxa < 0.9)
+    cout << "Baixa";
+  else
+    cout << "Estavel";
+
+  cout << endl;
+}
+
+void Nacional::printMaiorAltaEMaiorBaixa()
+{
+  Estadual maiorAlta = _estados.at(1), maiorBaixa = _estados.at(1);
+
+  // Arredonda a saida para 2 casas decimais
+  cout.precision(4);
+
+  for (unsigned short int i = 0; i < _estados.size(); i++)
+  {
+    Estadual estado = _estados.at(i);
+    if (maiorAlta.mediaMovel(1) < estado.mediaMovel(1))
+      maiorAlta = estado;
+    if (maiorBaixa.mediaMovel(1) > estado.mediaMovel(1))
+      maiorAlta = estado;
+  }
+
+  cout << " Estado com maior alta: "
+       << maiorAlta.getNome()
+       << " [ "
+       << maiorAlta.mediaMovel(1)
+       << "] "
+       << endl;
+
+  cout << " Estado com maior baixa: "
+       << maiorBaixa.getNome()
+       << " [ "
+       << maiorBaixa.mediaMovel(1)
+       << "] "
+       << endl;
 }
