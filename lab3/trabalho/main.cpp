@@ -22,6 +22,7 @@ int main()
   // obitos aleatorios
   Nacional brasil = Nacional("Brasil", populateBrazilStates());
 
+  // Loop do menu
   do
   {
     cout << "\n Selecione uma das seguintes opcoes:\n\n"
@@ -72,7 +73,7 @@ int main()
     default:
       break;
     }
-  } while (option != 6);
+  } while (option != 6); // Option 6 = sair do programa
 
   return 0;
 }

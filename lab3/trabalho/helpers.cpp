@@ -9,8 +9,8 @@
 
 #include "helpers.hpp"
 
-// Retorna um vetor de inteiros aleatorios utilizado para
-// popular os obitos de cada estado.
+// Retorna um vetor de inteiros aleatorios utilizado para popular os obitos de
+// cada estado
 vector<int> populateRandomIntVector()
 {
   vector<int> v;
@@ -23,6 +23,8 @@ vector<int> populateRandomIntVector()
   return v;
 }
 
+// Retorna um vector de Estadual com as siglas dos estados e os numeros de obitos
+// aleatorios
 vector<Estadual> populateBrazilStates()
 {
   vector<Estadual> estados;
@@ -60,5 +62,6 @@ vector<Estadual> populateBrazilStates()
     Estadual estado = Estadual(siglas.at(i), populateRandomIntVector());
     estados.push_back(estado);
   }
+
   return estados;
 }

@@ -15,19 +15,22 @@ using namespace std;
 class Estadual
 {
 public:
-  // Construtor para classe Estadual
+  // Constructor (string nome_do_estado, vector<int> numero_de_obitos)
   Estadual(string, vector<int>);
-  // Setters
-  void setNome(string);
-  // Getters
+
+  // Retorna o nome do estado
   string getNome();
+
+  // Retorna um vector com o historico de obitos do estado
   vector<int> getObitos();
 
   // Retorna a media movel do estado para os ultimos n dias, default = 3
   float mediaMovel(unsigned short int = 3);
 
+  // Para facilitar a identificacao todos os campos privados comecam com _
 private:
-  // Campos privados da classe
+  // Nome do estado
   string _nome;
+  // Historico de obitos do estado
   vector<int> _obitos;
 };

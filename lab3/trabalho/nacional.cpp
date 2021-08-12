@@ -41,10 +41,6 @@ void Nacional::printMediaMovelNacional(short unsigned int dias)
 
   // Arredonda a saida para 2 casas decimais
   cout.precision(4);
-  cout << " Pais    | Media Movel " << endl;
-  cout << "---------|-------------" << endl;
-  cout << " " << getNome();
-  cout << "  | ";
 
   for (unsigned short int i = 0; i < _estados.size(); i++)
   {
@@ -52,7 +48,16 @@ void Nacional::printMediaMovelNacional(short unsigned int dias)
     media += estado.mediaMovel(dias);
   }
 
-  cout << media / _estados.size() << "\n"
+  // Considerando que para esse programa apenas existe o pais Brasil, nao criei
+  // um script para montar as tabelas dinamicamente, dado qualquer tamanho de
+  // nome de pais(es), estado(s) e numero de obito(s)
+  cout << " Pais    | Media Movel "
+       << "\n"
+       << "---------|-------------"
+       << "\n"
+       << " " << Nacional::getNome()
+       << "  | "
+       << media / _estados.size() << "\n"
        << endl;
 }
 
@@ -60,10 +65,16 @@ void Nacional::printAltaEstabilidadeBaixaPorEstado()
 {
   vector<Estadual> alta, estabilidade, baixa;
 
+  // Calcula o a taxa por estado e adiciona o estado ao vetor correto
   for (unsigned short int i = 0; i < _estados.size(); i++)
   {
     Estadual estado = _estados.at(i);
+
+    // Consideramos que mediaMovel(1) = media do dia atual e mediaMovel(2) =
+    // media do dia anterior; tendo em vista que consideramos que os novos
+    // obitos sempre sao adicionados no inicio do vector (prepend)
     float taxa = estado.mediaMovel(1) / estado.mediaMovel(2);
+
     if (taxa > 1.1)
       alta.push_back(estado);
     else if (taxa < 0.9)
@@ -72,6 +83,7 @@ void Nacional::printAltaEstabilidadeBaixaPorEstado()
       estabilidade.push_back(estado);
   }
 
+  // Imprime as siglas dos estados em Alta
   cout << "Alta: ";
   for (unsigned short int i = 0; i < alta.size(); i++)
   {
@@ -79,6 +91,7 @@ void Nacional::printAltaEstabilidadeBaixaPorEstado()
   }
   cout << endl;
 
+  // Imprime as siglas dos estados em Estabilidade
   cout << "Estabilidade: ";
   for (unsigned short int i = 0; i < estabilidade.size(); i++)
   {
@@ -86,6 +99,7 @@ void Nacional::printAltaEstabilidadeBaixaPorEstado()
   }
   cout << endl;
 
+  // Imprime as siglas dos estados em Baixa
   cout << "Baixa: ";
   for (unsigned short int i = 0; i < baixa.size(); i++)
   {
@@ -101,13 +115,14 @@ void Nacional::printAltaEstabilidadeBaixaNacional()
   // Arredonda a saida para 2 casas decimais
   cout.precision(4);
 
+  // Funcao para calculo da taxa
   for (unsigned short int i = 0; i < _estados.size(); i++)
   {
     Estadual estado = _estados.at(i);
     taxa += estado.mediaMovel(1) / estado.mediaMovel(2) / _estados.size();
   }
 
-  cout << " " << getNome() << " [" << taxa << " ] - ";
+  cout << " " << Nacional::getNome() << " [" << taxa << " ] - ";
   if (taxa > 1.1)
     cout << "Alta";
   else if (taxa < 0.9)
@@ -120,11 +135,16 @@ void Nacional::printAltaEstabilidadeBaixaNacional()
 
 void Nacional::printMaiorAltaEMaiorBaixa()
 {
-  Estadual maiorAlta = _estados.at(1), maiorBaixa = _estados.at(1);
+  // Inicia as variaveis com o primeiro estado do vector
+  Estadual
+      maiorAlta = _estados.at(0),
+      maiorBaixa = _estados.at(0);
 
   // Arredonda a saida para 2 casas decimais
   cout.precision(4);
 
+  // Percorre todos os estados cadastrados e encontra aqueles com maior alta e
+  // maior baixa na media movel do dia atual
   for (unsigned short int i = 0; i < _estados.size(); i++)
   {
     Estadual estado = _estados.at(i);
@@ -153,6 +173,7 @@ void Nacional::printTotalDeObitos()
 {
   unsigned int totalObitosNacional = 0;
 
+  // Head da tablela
   cout << "\n Estado | Obitos " << endl;
 
   for (unsigned short int i = 0; i < _estados.size(); i++)
@@ -161,6 +182,7 @@ void Nacional::printTotalDeObitos()
     unsigned int totalObitosEstado = 0;
     vector<int> obitosEstado = estado.getObitos();
 
+    // Somatorio do numero de obitos ao longo de todo registro
     for (unsigned short int j = 0; j < obitosEstado.size(); j++)
     {
       totalObitosEstado += obitosEstado.at(j);
@@ -168,6 +190,7 @@ void Nacional::printTotalDeObitos()
 
     totalObitosNacional += totalObitosEstado;
 
+    // Body da tabela
     cout
         << " "
         << estado.getNome()
@@ -176,6 +199,9 @@ void Nacional::printTotalDeObitos()
         << endl;
   }
 
+  // Considerando que para esse programa apenas existe o pais Brasil, nao criei
+  // um script para montar as tabelas dinamicamente, dado qualquer tamanho de
+  // nome de pais(es), estado(s) e numero de obito(s)
   cout
       << "\n"
       << " Pais    | Obitos  "

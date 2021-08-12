@@ -12,9 +12,10 @@
 class Nacional
 {
 public:
-  // Constructor
+  // Constructor (string nome_do_pais, vector<Estadual> estados_do_pais)
   Nacional(string, vector<Estadual>);
-  // Getters
+
+  // Retorna o nome do pais
   string getNome();
 
   // Imprime a media movel dos estados do objeto para os ultimos n dias,
@@ -33,10 +34,13 @@ public:
   // Imprime o estado com maior alta e o estado com maior baixa
   void printMaiorAltaEMaiorBaixa();
 
+  // Imprime o total de obitos no pais e em cada estado individualmente
   void printTotalDeObitos();
 
+  // Para facilitar a identificacao todos os campos privados comecam com _
 private:
-  // Campos privados da classe
+  // Nome do pais
   string _nome;
+  // Estados do pais
   vector<Estadual> _estados;
 };
