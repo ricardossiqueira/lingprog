@@ -11,17 +11,17 @@
 
 using namespace std;
 
-#ifndef GRPAH_HPP
+#ifndef GRAPH_HPP
 #define GRAPH_HPP
 
-class Grafo
+class Graph
 {
 private:
   // Estrutura do grafo como um vetor de objetos da classe Edge
   vector<Edge> _graph;
 
 public:
-  Grafo();
+  Graph();
 };
 
 #endif
