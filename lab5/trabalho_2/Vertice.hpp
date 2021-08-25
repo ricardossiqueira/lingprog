@@ -7,6 +7,7 @@
  */
 
 #include <string>
+#include <cmath>
 
 using namespace std;
 
@@ -16,15 +17,30 @@ using namespace std;
 class Vertice
 {
 private:
-  // Nome do vertice
-  string _name;
+  // Id(nome) do vertice
+  string _id;
+
+  // Referencia para o vertice anterior
+  Vertice *_previous;
+
+  // Somatorio dos pesos do vertice de origem ate o atual
+  float _distanceFromStart;
 
 public:
   // Constructor vertice
-  Vertice(string name);
+  Vertice(
+      string id,
+      Vertice *previous = NULL,
+      float distanceFromStart = INFINITY); //*Ok
 
-  // Getter nome do vertice
-  string getName();
+  // Getters
+  string getId();               //*OK
+  Vertice *getPrevious();       //*OK
+  float getDistanceFromStart(); //*OK
+
+  // Setters
+  void setPrevious(Vertice *previous),               //*OK
+      setDistanceFromStart(float distanceFromStart); //*OK
 };
 
 #endif

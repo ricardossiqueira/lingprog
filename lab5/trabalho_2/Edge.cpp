@@ -8,7 +8,7 @@
 
 #include "Edge.hpp"
 
-Edge::Edge(Vertice *x, Vertice *y, double weight = 1.0)
+Edge::Edge(Vertice *x, Vertice *y, double weight)
 {
   _x = x;
   _y = y;
@@ -18,3 +18,8 @@ Edge::Edge(Vertice *x, Vertice *y, double weight = 1.0)
 double Edge::getWeight() { return _weight; }
 Vertice *Edge::getX() { return _x; }
 Vertice *Edge::getY() { return _y; }
+
+bool Edge::connect(Vertice *x, Vertice *y)
+{
+  return (x == _x && y == _y) || (x == _y && y == _x);
+}

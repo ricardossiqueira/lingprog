@@ -8,6 +8,19 @@
 
 #include "Vertice.hpp"
 
-Vertice::Vertice(string name) { _name = name; }
+Vertice::Vertice(string id, Vertice *previous, float distanceFromStart)
+{
+  _id = id;
+  _previous = previous;
+  _distanceFromStart = distanceFromStart;
+}
 
-string Vertice::getName() { return _name; }
+string Vertice::getId() { return _id; }
+Vertice *Vertice::getPrevious() { return _previous; }
+float Vertice::getDistanceFromStart() { return _distanceFromStart; }
+
+void Vertice::setPrevious(Vertice *previous) { _previous = previous; }
+void Vertice::setDistanceFromStart(float distanceFromStart)
+{
+  _distanceFromStart = distanceFromStart;
+}

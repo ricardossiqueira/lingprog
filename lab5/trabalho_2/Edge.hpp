@@ -8,6 +8,7 @@
 
 #include "Vertice.hpp"
 #include <vector>
+#define STD_WEIGHT 1.0
 
 using namespace std;
 
@@ -24,12 +25,14 @@ private:
 
 public:
   // Constructor aresta
-  Edge(Vertice *x, Vertice *y, double weight = 1.0);
+  Edge(Vertice *x, Vertice *y, double weight = STD_WEIGHT); //*OK
 
-  // Gettter arestas do vertice
-  Vertice *getX(), *getY();
-  // Getter peso da aresta
-  double getWeight();
+  // Getters
+  Vertice *getX(), *getY(); //*OK
+  double getWeight();       //*OK
+
+  // Verifica se os vertices informados estao definidos na aresta
+  bool connect(Vertice *x, Vertice *y); //*OK
 };
 
 #endif

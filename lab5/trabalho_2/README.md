@@ -26,3 +26,5 @@
 [Adjency Matrix](hhttps://en.wikipedia.org/wiki/Adjacency_matrix)
 
 [Graph Representation Adjacency List and Matrix](https://algorithmtutor.com/Data-Structures/Graph/Graph-Representation-Adjacency-List-and-Matrix/)
+
+[Dijkstra Algorithm](https://www.programiz.com/dsa/dijkstra-algorithm)
