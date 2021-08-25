@@ -28,11 +28,14 @@ private:
   // Retorna a distancia entre dois vertices
   float _distanceBetweenVertices(Vertice *x, Vertice *y);
 
-  // Retorna os vertices adjascentes a um vertice
-  vector<Vertice *> *_adjacentVertices(Vertice *x);
+  // Retorna a lista de vertices adjacentes a um vertice do vetor _edges
+  vector<Vertice *> *_adjacentVertices(Vertice *x); //*OK
 
   // Retorna o vertice com menor peso e remove o mesmo do vetor _vertices
-  Vertice *_extractSmallestVertice();
+  Vertice *_extractSmallestVertice(); //*OK
+
+  // Verifica se um dado vetor de vertices contem um dado vertice
+  bool _contains(vector<Vertice *> &vertices, Vertice *vertice);
 
 public:
   // Cria uma aresta e adiciona ao vetor _edges(grafo)
@@ -49,8 +52,8 @@ public:
   // Diametro do grafo
   int graphDiametre();
 
-  // Grau de um vertice no grafo
-  int degree(Vertice x);
+  // Grau de um vertice no grafo (interface para Graph::_adjacentVertices())
+  int degree(Vertice *x); //*OK
 
   //############################################################################
   Vertice *interfaceExtractSmallestVertice();

@@ -35,6 +35,7 @@ int main(int argc, char **argv)
   cout << "Edges: " << graph.countEdges() << endl;
   cout << "Vertices: " << graph.countVertices() << endl;
   cout << "Smallest vertice: " << graph.interfaceExtractSmallestVertice()->getId() << endl;
+  cout << "Degree: " << graph.degree(&a) << endl;
 
   return 0;
 }
