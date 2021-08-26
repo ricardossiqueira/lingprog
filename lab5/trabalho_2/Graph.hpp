@@ -49,14 +49,14 @@ public:
   // Computa o algoritimo de Dijkstra no grafo a partir de um vertice inicial
   void dijkstra(); //*OK
 
+  // Imprime o caminho mais curto para um vertice qualquer
+  void printShortestPath(Vertice *target); //*OK
+
   // Diametro do grafo
   int graphDiametre(); //!NOT IMPLEMENTED
 
   // Grau de um vertice no grafo (interface para Graph::_adjacentVertices())
   int degree(Vertice *x); //*OK
-
-  //############################################################################
-  Vertice *interfaceExtractSmallestVertice();
 };
 
 #endif

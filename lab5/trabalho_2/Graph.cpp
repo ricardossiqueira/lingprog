@@ -123,7 +123,7 @@ float Graph::_distanceBetweenVertices(Vertice *x, Vertice *y)
     if (edge->connect(x, y))
       return edge->getWeight();
   }
-  // Um retorno padrao, mas nao deve acontecer
+  // Retorno padrao em caso de erro, mas nao deve acontecer
   return -1;
 }
 
@@ -138,9 +138,10 @@ void Graph::dijkstra()
     for (unsigned int i = 0; i < adjacentVertices->size(); i++)
     {
       Vertice *adjacent = adjacentVertices->at(i);
-      float distance = Graph::_distanceBetweenVertices(smallest, adjacent);
+      float distance = Graph::_distanceBetweenVertices(smallest, adjacent) +
+                       smallest->getDistanceFromStart();
 
-      if (distance < adjacent->getDistanceFromStart())
+      if (adjacent->getDistanceFromStart() == INFINITY)
       {
         adjacent->setDistanceFromStart(distance);
         adjacent->setPrevious(smallest);
@@ -150,8 +151,14 @@ void Graph::dijkstra()
   }
 }
 
-//##############################################################################
-Vertice *Graph::interfaceExtractSmallestVertice()
+void Graph::printShortestPath(Vertice *target)
 {
-  return Graph::_extractSmallestVertice();
+  Vertice *previous = target;
+  cout << "Distancia do comeco: " << target->getDistanceFromStart() << endl;
+  while (previous)
+  {
+    cout << previous->getId() << " ";
+    previous = previous->getPrevious();
+  }
+  cout << endl;
 }

@@ -30,13 +30,14 @@ int main(int argc, char **argv)
   graph.createEdge(&g, &c, 1.1);
 
   // Definindo a como comeco
-  a.setDistanceFromStart(0);
+  b.setDistanceFromStart(0);
 
   cout << "Edges: " << graph.countEdges() << endl;
   cout << "Vertices: " << graph.countVertices() << endl;
-  cout << "Smallest vertice: " << graph.interfaceExtractSmallestVertice()->getId() << endl;
-  cout << "Degree: " << graph.degree(&a) << endl;
+  // cout << "Degree: " << graph.degree(&a) << endl;
+  // graph.getVerticesOverview();
   graph.dijkstra();
+  graph.printShortestPath(&d);
 
   return 0;
 }
