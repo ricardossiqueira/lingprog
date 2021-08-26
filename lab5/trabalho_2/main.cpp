@@ -36,6 +36,7 @@ int main(int argc, char **argv)
   cout << "Vertices: " << graph.countVertices() << endl;
   cout << "Smallest vertice: " << graph.interfaceExtractSmallestVertice()->getId() << endl;
   cout << "Degree: " << graph.degree(&a) << endl;
+  graph.dijkstra();
 
   return 0;
 }

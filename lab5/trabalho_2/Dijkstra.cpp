@@ -121,7 +121,7 @@ void Dijkstras()
 
 // Find the node with the smallest distance,
 // remove it, and return it.
-Node *ExtractSmallest(vector<Node *> &nodes)
+Node *ExtractSmallest(vector<Node *> &nodes) //*OK
 {
   int size = nodes.size();
   if (size == 0)
@@ -144,7 +144,7 @@ Node *ExtractSmallest(vector<Node *> &nodes)
 
 // Return all nodes adjacent to 'node' which are still
 // in the 'nodes' collection.
-vector<Node *> *AdjacentRemainingNodes(Node *node)
+vector<Node *> *AdjacentRemainingNodes(Node *node) //*OK
 {
   vector<Node *> *adjacentNodes = new vector<Node *>();
   const int size = edges.size();
@@ -169,7 +169,7 @@ vector<Node *> *AdjacentRemainingNodes(Node *node)
 }
 
 // Return distance between two connected nodes
-int Distance(Node *node1, Node *node2)
+int Distance(Node *node1, Node *node2) //*OK
 {
   const int size = edges.size();
   for (int i = 0; i < size; ++i)
@@ -184,7 +184,7 @@ int Distance(Node *node1, Node *node2)
 }
 
 // Does the 'nodes' vector contain 'node'
-bool Contains(vector<Node *> &nodes, Node *node)
+bool Contains(vector<Node *> &nodes, Node *node) //*OK
 {
   const int size = nodes.size();
   for (int i = 0; i < size; ++i)
@@ -199,7 +199,7 @@ bool Contains(vector<Node *> &nodes, Node *node)
 
 ///////////////////
 
-void PrintShortestRouteTo(Node *destination)
+void PrintShortestRouteTo(Node *destination) //!MISSING
 {
   Node *previous = destination;
   cout << "Distance from start: "
@@ -216,7 +216,7 @@ void PrintShortestRouteTo(Node *destination)
 vector<Edge *> *AdjacentEdges(vector<Edge *> &Edges, Node *node);
 void RemoveEdge(vector<Edge *> &Edges, Edge *edge);
 
-vector<Edge *> *AdjacentEdges(vector<Edge *> &edges, Node *node)
+vector<Edge *> *AdjacentEdges(vector<Edge *> &edges, Node *node) //!MISSING
 {
   vector<Edge *> *adjacentEdges = new vector<Edge *>();
 
@@ -238,7 +238,7 @@ vector<Edge *> *AdjacentEdges(vector<Edge *> &edges, Node *node)
   return adjacentEdges;
 }
 
-void RemoveEdge(vector<Edge *> &edges, Edge *edge)
+void RemoveEdge(vector<Edge *> &edges, Edge *edge) //!MISSING
 {
   vector<Edge *>::iterator it;
   for (it = edges.begin(); it < edges.end(); ++it)

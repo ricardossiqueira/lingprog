@@ -60,9 +60,6 @@ Vertice *Graph::_extractSmallestVertice()
   for (unsigned int i; i < length; i++)
   {
     Vertice *current = _vertices.at(i);
-    //! ERRO NESSA DISTANCIA
-    //* NAO TEM ERRO, TA RETORNANDO "A" PQ TO JOGANDO ESSE TREM PRA 0 POR SER A
-    //* ORIGEM!!!
     if (current->getDistanceFromStart() < smallest->getDistanceFromStart())
     {
       smallest = current;
@@ -115,6 +112,42 @@ vector<Vertice *> *Graph::_adjacentVertices(Vertice *x)
 int Graph::degree(Vertice *x)
 {
   return Graph::_adjacentVertices(x)->size();
+}
+
+// Retorna a distancia entre dois vertices
+float Graph::_distanceBetweenVertices(Vertice *x, Vertice *y)
+{
+  for (unsigned int i = 0; i < _edges.size(); i++)
+  {
+    Edge *edge = _edges.at(i);
+    if (edge->connect(x, y))
+      return edge->getWeight();
+  }
+  // Um retorno padrao, mas nao deve acontecer
+  return -1;
+}
+
+void Graph::dijkstra()
+{
+  while (_vertices.size() > 0)
+  {
+    // Pega o menor vertice = vertice inicial
+    Vertice *smallest = Graph::_extractSmallestVertice();
+    vector<Vertice *> *adjacentVertices = Graph::_adjacentVertices(smallest);
+
+    for (unsigned int i = 0; i < adjacentVertices->size(); i++)
+    {
+      Vertice *adjacent = adjacentVertices->at(i);
+      float distance = Graph::_distanceBetweenVertices(smallest, adjacent);
+
+      if (distance < adjacent->getDistanceFromStart())
+      {
+        adjacent->setDistanceFromStart(distance);
+        adjacent->setPrevious(smallest);
+      }
+    }
+    delete adjacentVertices;
+  }
 }
 
 //##############################################################################

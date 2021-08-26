@@ -26,7 +26,7 @@ private:
   vector<Vertice *> _vertices;
 
   // Retorna a distancia entre dois vertices
-  float _distanceBetweenVertices(Vertice *x, Vertice *y);
+  float _distanceBetweenVertices(Vertice *x, Vertice *y); //*OK
 
   // Retorna a lista de vertices adjacentes a um vertice do vetor _edges
   vector<Vertice *> *_adjacentVertices(Vertice *x); //*OK
@@ -35,7 +35,7 @@ private:
   Vertice *_extractSmallestVertice(); //*OK
 
   // Verifica se um dado vetor de vertices contem um dado vertice
-  bool _contains(vector<Vertice *> &vertices, Vertice *vertice);
+  bool _contains(vector<Vertice *> &vertices, Vertice *vertice); //*OK
 
 public:
   // Cria uma aresta e adiciona ao vetor _edges(grafo)
@@ -46,11 +46,11 @@ public:
       // Numero de arestas/enlaces do grafo
       countEdges(); //*OK
 
-  // Caminho mais curto entre dois vertices usando o algoritimo de Dijkstra
-  void dijkstraShortestPath();
+  // Computa o algoritimo de Dijkstra no grafo a partir de um vertice inicial
+  void dijkstra(); //*OK
 
   // Diametro do grafo
-  int graphDiametre();
+  int graphDiametre(); //!NOT IMPLEMENTED
 
   // Grau de um vertice no grafo (interface para Graph::_adjacentVertices())
   int degree(Vertice *x); //*OK
