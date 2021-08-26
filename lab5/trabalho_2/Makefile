@@ -7,7 +7,7 @@ LD = g++
 CFLAGS = -Wall
 LFLAGS = -Wall
 
-OBJS = Graph.o Edge.o Vertice.o main.o
+OBJS = Graph.o Edge.o Vertice.o filehelper.o main.o
 
 TARGET = main
 
@@ -22,6 +22,9 @@ Edge.o: Edge.cpp Edge.hpp
 
 Vertice.o: Vertice.cpp Vertice.hpp
 	$(CC) $(CFLAGS) -c Vertice.cpp
+
+filehelper.o: filehelper.cpp filehelper.hpp
+	$(CC) $(CFLAGS) -c filehelper.cpp
 
 all: $(TARGET)
 
