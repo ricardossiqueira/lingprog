@@ -151,6 +151,7 @@ void Graph::dijkstra()
   }
 }
 
+// Imprime a menor distancia calculada
 void Graph::printShortestPath(Vertice *target)
 {
   Vertice *previous = target;
