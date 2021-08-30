@@ -33,7 +33,3 @@ $(TARGET): $(OBJS)
 
 clean:
 	rm $(OBJS) $(TARGET)
-
-
-test:
-	make all && ./main 5 1 2 3 4 6 -; make clean

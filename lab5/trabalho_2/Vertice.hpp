@@ -31,16 +31,16 @@ public:
   Vertice(
       string id,
       Vertice *previous = NULL,
-      float distanceFromStart = INFINITY); //*Ok
+      float distanceFromStart = INFINITY);
 
   // Getters
-  string getId();               //*OK
-  Vertice *getPrevious();       //*OK
-  float getDistanceFromStart(); //*OK
+  string getId();
+  Vertice *getPrevious();
+  float getDistanceFromStart();
 
   // Setters
-  void setPrevious(Vertice *previous),               //*OK
-      setDistanceFromStart(float distanceFromStart); //*OK
+  void setPrevious(Vertice *previous),
+      setDistanceFromStart(float distanceFromStart);
 };
 
 #endif

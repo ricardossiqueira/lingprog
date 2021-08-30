@@ -26,37 +26,37 @@ private:
   vector<Vertice *> _vertices;
 
   // Retorna a distancia entre dois vertices
-  float _distanceBetweenVertices(Vertice *x, Vertice *y); //*OK
+  float _distanceBetweenVertices(Vertice *x, Vertice *y);
 
   // Retorna a lista de vertices adjacentes a um vertice do vetor _edges
-  vector<Vertice *> *_adjacentVertices(Vertice *x); //*OK
+  vector<Vertice *> *_adjacentVertices(Vertice *x);
 
   // Retorna o vertice com menor peso e remove o mesmo do vetor _vertices
-  Vertice *_extractSmallestVertice(); //*OK
+  Vertice *_extractSmallestVertice();
 
   // Verifica se um dado vetor de vertices contem um dado vertice
-  bool _contains(vector<Vertice *> &vertices, Vertice *vertice); //*OK
+  bool _contains(vector<Vertice *> &vertices, Vertice *vertice);
 
 public:
   // Cria uma aresta e adiciona ao vetor _edges(grafo)
-  void createEdge(Vertice *x, Vertice *y, double weight = STD_WEIGHT); //*OK
+  void createEdge(Vertice *x, Vertice *y, double weight = STD_WEIGHT);
 
   // Numero de vertices do grafo
-  int countVertices(), //! NON-USED-FUNC
+  int countVertices(),
       // Numero de arestas/enlaces do grafo
-      countEdges(); //*OK
+      countEdges();
 
   // Computa o algoritimo de Dijkstra no grafo a partir de um vertice inicial
-  void dijkstra(); //*OK
+  void dijkstra();
 
   // Imprime o caminho mais curto para um vertice qualquer
-  void printShortestPath(Vertice *target); //*OK
+  void printShortestPath(Vertice *target);
 
   // Diametro do grafo
-  int graphDiametre(); //!NOT IMPLEMENTED
+  int graphDiametre(); //! NAO IMPLEMENTADO
 
   // Grau de um vertice no grafo (interface para Graph::_adjacentVertices())
-  int degree(Vertice *x); //*OK
+  int degree(Vertice *x);
 };
 
 #endif

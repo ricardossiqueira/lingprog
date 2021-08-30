@@ -8,6 +8,8 @@
 
 #include "filehelper.hpp"
 
+// Recebe ponteiros da funcao que chamou e popula os vetores da recebidos com os
+// valores lidos do arquivo
 void readFile(string fileName,
               vector<array<string, 3>> *edgesMap,
               vector<string> *verticesMap)
@@ -36,6 +38,8 @@ void readFile(string fileName,
   fs.close();
 }
 
+// Chama a funcao readFile() e cria as instancias de Edge e Vertice com base nos
+// valores lidos
 void createGraph(Graph *graph, vector<Vertice *> *vertices)
 {
   vector<array<string, 3>> edgesMap;

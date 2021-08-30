@@ -25,14 +25,14 @@ private:
 
 public:
   // Constructor aresta
-  Edge(Vertice *x, Vertice *y, double weight = STD_WEIGHT); //*OK
+  Edge(Vertice *x, Vertice *y, double weight = STD_WEIGHT);
 
   // Getters
-  Vertice *getX(), *getY(); //*OK
-  double getWeight();       //*OK
+  Vertice *getX(), *getY();
+  double getWeight();
 
   // Verifica se os vertices informados estao definidos na aresta
-  bool connect(Vertice *x, Vertice *y); //*OK
+  bool connect(Vertice *x, Vertice *y);
 };
 
 #endif

@@ -1,21 +1,32 @@
 # Trabalho 2 - Linguagens de Programação
 
-**Aluno:** Ricardo Santos Siqueira
-
-**DRE:** 118167558
-
+**Aluno:** Ricardo Santos Siqueira\
+**DRE:** 118167558\
 **Período:** 2021.1 
 
 ## Ambiente de desenvolvimento
 
-
+**OS:** Manjaro Linux x86_64\
+**Kernel:** 5.13.12-1-MANJARO\
+**Shell:** fish **3.3**.1
 
 ## Compilação
 
+```console
+make all
+```
 
+## Utilização
 
-## Execução
+```console
+./main <OPCAO>
+```
 
+O usuário deve executar o programa passando o argumento correspondente a função que deseja executar. As funções disponíveis podem ser visualizadas ao executar o programa com a flag ```-h```.
+
+```console
+./main -h
+```
 
 ## Referências externas
 
