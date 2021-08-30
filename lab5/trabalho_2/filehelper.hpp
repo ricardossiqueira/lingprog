@@ -1,6 +1,17 @@
+/** Trabalho 2 - Linguagens de Programacao EL1
+ *  Periodo: 2021.1
+ *  Autor: Ricardo Santos Siqueira
+ *  DRE: 118167558
+ *  Arquivo: filehelper.hpp
+ *  Descricao: Cabecalho da dupla de funcoes para lidar com a leitura do 
+ *             arquivo.
+ */
+
 #include <string>
 #include <fstream>
 #include <iostream>
+#include "Vertice.hpp"
+#include "Edge.hpp"
 #include "Graph.hpp"
 
 #ifndef FILEHELPER_HPP

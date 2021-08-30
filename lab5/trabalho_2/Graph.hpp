@@ -42,7 +42,7 @@ public:
   void createEdge(Vertice *x, Vertice *y, double weight = STD_WEIGHT); //*OK
 
   // Numero de vertices do grafo
-  int countVertices(), //*OK
+  int countVertices(), //! NON-USED-FUNC
       // Numero de arestas/enlaces do grafo
       countEdges(); //*OK
 

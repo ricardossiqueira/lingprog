@@ -156,6 +156,7 @@ void Graph::printShortestPath(Vertice *target)
 {
   Vertice *previous = target;
   cout << "Distancia do comeco: " << target->getDistanceFromStart() << endl;
+  cout << "Caminho: ";
   while (previous)
   {
     cout << previous->getId() << " ";

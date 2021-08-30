@@ -36,4 +36,4 @@ clean:
 
 
 test:
-	make clean; make all && ./main
+	make all && ./main 5 1 2 3 4 6 -; make clean

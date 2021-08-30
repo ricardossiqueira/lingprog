@@ -1,3 +1,11 @@
+/** Trabalho 2 - Linguagens de Programacao EL1
+ *  Periodo: 2021.1
+ *  Autor: Ricardo Santos Siqueira
+ *  DRE: 118167558
+ *  Arquivo: filehelper.cpp
+ *  Descricao: Implementacao da dupla de funcoes.
+ */
+
 #include "filehelper.hpp"
 
 void readFile(string fileName,
