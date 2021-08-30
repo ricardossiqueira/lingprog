@@ -34,7 +34,7 @@ O usuário deve executar o programa passando o argumento correspondente a funç�
 
 [Adjency List](https://en.wikipedia.org/wiki/Adjacency_list)
 
-[Adjency Matrix](hhttps://en.wikipedia.org/wiki/Adjacency_matrix)
+[Adjency Matrix](https://en.wikipedia.org/wiki/Adjacency_matrix)
 
 [Graph Representation Adjacency List and Matrix](https://algorithmtutor.com/Data-Structures/Graph/Graph-Representation-Adjacency-List-and-Matrix/)
 
