@@ -13,6 +13,16 @@ from ImageResolver import ImageResolver
 # Biblioteca para uso das diretivas argc e argv
 import sys
 
+'''
+OPTIONS
+    --uri=<uri>
+    --crop
+    --save-as=<png, jpeg>
+    --filters=<color, contrast, detail, smooth>
+    --mod=<float > 1>
+'''
+
+
 if __name__ == "__main__":
     uri = sys.argv[1]
 
@@ -20,12 +30,8 @@ if __name__ == "__main__":
     ir.loadImageFromWeb()
     ir.mapFaceRect()
     ir.cropImage()
-    ir.saveAs(im=ir.croppedIm[0], format='jpeg')
+    colorEnhance = ir.colorFilter(ir.croppedIm[0])
+    ir.saveAs(im=colorEnhance, format='png')
 
-
-# ir = ImageResolver(
-#     "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=668&q=80")
-# ir.loadImageFromWeb()
-# ir.mapFaceRect()
-# ir.cropImage()
-# ir.saveAs(im=ir.croppedIm[0], format='jpeg')
+    # for arg in sys.argv:
+    #     print(arg)

@@ -1,38 +1,42 @@
 #include <iostream>
 #include <string>
-#include <Python.h>
-
-#ifdef __unix__
-#include <unistd.h>
-
-#elif defined _WIN32
-#include <windows.h>
-#define sleep(x) Sleep(1000 * (x))
-
-#endif
-
-// #define BASH "/usr/bin/bash"
 
 using namespace std;
 
+// Crop rostos na imagem
+//     Aplicar algum filtro
+//     Aspect ratio 3:4
+// Filter SMOOTH
+// Filter DETAIL
+// Enhance COLOR
+// Enhance CONTRAST
+
 int main(int argc, char *argv[])
 {
+  string options1 = "Opcoes:\n\t1 - Cortar apenas rostos\n\t2 - Prosseguir sem cortar";
+  string uri = "";
+  string selections;
 
-  char filename[] = "python/interface.py";
-  FILE *fp;
+  enum optionsMap
+  {
+    To3x4,
+    Smooth,
+    Detail,
+    Color,
+    Contrast
+  };
 
-  PyObject *pInt;
+  cout << "Entre com a url da imagem: ";
+  cin >> uri;
+  cout << endl;
 
-  Py_Initialize();
-
-  fp = _Py_fopen(filename, "r");
-  PyRun_SimpleFile(fp, filename);
-
-  Py_Finalize();
-
-  // string command = "python3 resolveImage.py https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=668&q=80";
-
-  // system(command.c_str());
+  while (uri != "")
+  {
+    cout << options1 << endl;
+    cout << ">> ";
+    cin >> selections;
+    uri = "";
+  }
 
   return 0;
 }

@@ -19,13 +19,10 @@ import requests
 # Biblioteca do opencv para aplicar o algoritimo de deteccao
 import cv2
 
-# handle argc and argv
-import sys
-
 
 class ImageResolver:
     # Modelo para extracao das coordenadas do rosto da pessoa
-    __haarcascade = './haarcascade_frontalface_alt2.xml'  # Static
+    __haarcascade = 'python/haarcascade_frontalface_alt2.xml'  # Static
 
     # Getters
     @property
@@ -153,26 +150,22 @@ class ImageResolver:
     def smoothFilter(__self__, im=None):
         if (im == None):
             im = __self__.im
-        im.filter(ImageFilter.SMOOTH)
-        return
+        return im.filter(ImageFilter.SMOOTH)
 
     def detailFilter(__self__, im=None):
         if (im == None):
             im = __self__.im
-        im.filter(ImageFilter.DETAIL)
-        return
+        return im.filter(ImageFilter.DETAIL)
 
     def contrastFilter(__self__, im=None, mod=1.3):
         if (im == None):
             im = __self__.im
-        ImageEnhance.Contrast(im).enhance(mod)
-        return
+        return ImageEnhance.Contrast(im).enhance(mod)
 
     def colorFilter(__self__, im=None, mod=1.3):
         if (im == None):
             im = __self__.im
-        ImageEnhance.Color(im).enhance(mod)
-        return
+        return ImageEnhance.Color(im).enhance(mod)
 
     def saveAs(__self__, im=None, format='PNG', index=None):
         if (im == None):
