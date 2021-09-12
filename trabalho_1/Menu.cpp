@@ -1,3 +1,11 @@
+/*Trabalho - Linguagens de Programacao
+ *Aluno: Ricardo Santos Siqueira
+ *DRE: 118167558
+ *Periodo: 2021.1
+ *Arquivo: Menu.cpp
+ *Descricao: Implementacao das funcoes do menu
+ */
+
 #include "Menu.hpp"
 
 Menu::Menu()

@@ -1,3 +1,11 @@
+/*Trabalho - Linguagens de Programacao
+ *Aluno: Ricardo Santos Siqueira
+ *DRE: 118167558
+ *Periodo: 2021.1
+ *Arquivo: Menu.hpp
+ *Descricao: Cabecalho da classe Menu
+ */
+
 #include <iostream>
 #include <string>
 #include <regex>

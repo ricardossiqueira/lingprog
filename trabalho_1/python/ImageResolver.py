@@ -1,5 +1,5 @@
 '''
-Trabalho 1 - Linguagens de Programacao EL1
+Trabalho - Linguagens de Programacao
 Aluno: Ricardo Santos Siqueira
 DRE: 118167558
 Periodo: 2021.1

@@ -1,3 +1,11 @@
+/*Trabalho - Linguagens de Programacao
+ *Aluno: Ricardo Santos Siqueira
+ *DRE: 118167558
+ *Periodo: 2021.1
+ *Arquivo: main.cpp
+ *Descricao: Funcao principal do programa, chama o menu e controla o fluxo
+ */
+
 #include <iostream>
 #include <string>
 #include "Menu.hpp"
