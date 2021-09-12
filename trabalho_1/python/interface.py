@@ -49,8 +49,6 @@ if __name__ == "__main__":
     if (contrast != 1.0):
         im = map(lambda arg: ir.contrastFilter(im=arg, mod=contrast), im)
 
-    imName=[]
-    for i in range(len(im)):
-        imName.append(ir.saveAs(im=im[i], index=i))
-    
+    imName = [ir.saveAs(im=name, index=i) for i, name in enumerate(im)]
+
     sys.stdout.write('\n'.join(imName))

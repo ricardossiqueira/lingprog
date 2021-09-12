@@ -23,8 +23,6 @@ void Menu::run()
   // e enviado para o script python que sempre executa a opcao de salvar
   while (option != Save)
   {
-    int option;
-
     cout << avalilableOptions << endl;
     cout << ">>> ";
 
