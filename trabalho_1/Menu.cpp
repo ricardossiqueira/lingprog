@@ -16,7 +16,7 @@ Menu::Menu()
 void Menu::run()
 {
   int option = 0;
-  string avalilableOptions = "Opcoes:\n\t1 - Faces\n\t2 - 3x4\n\t3 - Smooth\n\t4 - Detail\n\t5 - Color\n\t6 - Contrast\n\t7 - Save";
+  string avalilableOptions = "Opcoes:\n\t1 - Cortar faces\n\t2 - Ajustar proporcao da imagem para 3:4\n\t3 - [Filtro] Suavizar detalhes\n\t4 - [Filtro] Realcar detalhes\n\t5 - [Filtro] Ajustar cor\n\t6 - [Filtro] Ajustar contraste\n\t7 - Salvar copias e sair";
 
   // Enquanto a opcao selecionada nao for 7 (Save), o programa continua recebendo
   // entradas do usuario. Quando selecionada a opcao o menu retorna e o comando
