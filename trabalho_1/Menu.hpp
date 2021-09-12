@@ -9,6 +9,7 @@
 #include <iostream>
 #include <string>
 #include <regex>
+#include <limits>
 
 #ifndef MENU_HPP
 #define MENU_HPP
@@ -53,6 +54,9 @@ private:
 
   // Inicializa a URI da classe
   void _handleURI();
+
+  // Implementacao de std::cin para receber apenas valores int
+  int _handleNumber();
 
 public:
   // Instancia a classe e garante que todos os valores iniciem "zerados"

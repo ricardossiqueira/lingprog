@@ -23,14 +23,17 @@ void Menu::run()
   // e enviado para o script python que sempre executa a opcao de salvar
   while (option != Save)
   {
+    int option;
+
     cout << avalilableOptions << endl;
     cout << ">>> ";
-    cin >> option;
+
+    option = _handleNumber();
 
     while (_validateInput(option, Faces, Save) == 0)
     {
       cout << ">>> ";
-      cin >> option;
+      option = _handleNumber();
     }
 
     switch (option)
@@ -87,7 +90,7 @@ bool Menu::_handleBool(string msg)
         << msg
         << endl;
     cout << ">>> ";
-    cin >> selected;
+    selected = _handleNumber();
   } while (_validateInput(selected, 1, 2) == 0);
   if (selected == 1)
     return true;
@@ -105,7 +108,7 @@ float Menu::_handleSelection(string msg)
         << msg
         << endl;
     cout << ">>> ";
-    cin >> selected;
+    selected = _handleNumber();
   } while (_validateInput(selected, 1, 2) == 0);
   if (selected == 1)
   {
@@ -168,4 +171,17 @@ void Menu::_handleURI()
     cin >> uri;
   }
   _uri = uri;
+}
+
+int Menu::_handleNumber()
+{
+  int arg;
+  while (!(cin >> arg))
+  {
+    cin.clear();
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    cerr << "Erro: Entrada invalida" << endl;
+    cout << ">>> ";
+  }
+  return arg;
 }

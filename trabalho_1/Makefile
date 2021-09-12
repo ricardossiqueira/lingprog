@@ -7,9 +7,12 @@ LD = $(CC)
 CFLAGS = -Wall 
 LFLAGS = $(CFLAGS)
 
-OBJS = main.o Menu.o
+OBJS = main.o Menu.o FileResolver.o
 
 TARGET = main
+
+FileResolver.o: FileResolver.cpp
+	$(CC) $(CFLAGS) $(PYFLAGS) -c FileResolver.cpp
 
 Menu.o: Menu.cpp
 	$(CC) $(CFLAGS) $(PYFLAGS) -c Menu.cpp
