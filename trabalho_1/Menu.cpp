@@ -15,23 +15,60 @@ Menu::Menu()
 
 void Menu::run()
 {
-  _faces = _handleBool( //_handleFaces
-      "Opcoes:\n\t1 - Cortar apenas rostos\n\t2 - Prosseguir sem cortar");
+  int option = 0;
+  string avalilableOptions = "Opcoes:\n\t1 - Faces\n\t2 - 3x4\n\t3 - Smooth\n\t4 - Detail\n\t5 - Color\n\t6 - Contrast\n\t7 - Save";
 
-  _3x4 = _handleBool( // _handle3x4
-      "Opcoes:\n\t1 - Ajustar para proporcao 3:4\n\t2 - Prosseguir sem ajuste");
+  // Enquanto a opcao selecionada nao for 7 (Save), o programa continua recebendo
+  // entradas do usuario. Quando selecionada a opcao o menu retorna e o comando
+  // e enviado para o script python que sempre executa a opcao de salvar
+  while (option != Save)
+  {
+    cout << avalilableOptions << endl;
+    cout << ">>> ";
+    cin >> option;
 
-  _smooth = _handleBool( // _handleSmooth
-      "Opcoes:\n\t1 - Suavizar detalhes da imagem\n\t2 - Prosseguir sem ajuste");
+    while (_validateInput(option, Faces, Save) == 0)
+    {
+      cout << ">>> ";
+      cin >> option;
+    }
 
-  _detail = _handleBool( //_handleDetail
-      "Opcoes:\n\t1 - Realcar detalhes da imagem\n\t2 - Prosseguir sem ajuste");
+    switch (option)
+    {
+    case Faces:
+      _faces = _handleBool( //_handleFaces
+          "Opcoes:\n\t1 - Cortar apenas rostos\n\t2 - Voltar");
+      break;
 
-  _color = _handleSelection( // _handleColor
-      "Opcoes:\n\t1 - Ajustar intensidade de cor\n\t2 - Prosseguir sem ajuste");
+    case AR3x4:
+      _3x4 = _handleBool( // _handle3x4
+          "Opcoes:\n\t1 - Ajustar para proporcao 3:4\n\t2 - Voltar");
+      break;
 
-  _contrast = _handleSelection( // _handleContrast
-      "Opcoes:\n\t1 - Ajustar contraste\n\t2 - Prosseguir sem ajuste");
+    case Smooth:
+      _smooth = _handleBool( // _handleSmooth
+          "Opcoes:\n\t1 - Suavizar detalhes da imagem\n\t2 - Voltar");
+      break;
+
+    case Detail:
+      _detail = _handleBool( //_handleDetail
+          "Opcoes:\n\t1 - Realcar detalhes da imagem\n\t2 - Voltar");
+      break;
+
+    case Color:
+      _color = _handleSelection( // _handleColor
+          "Opcoes:\n\t1 - Ajustar intensidade de cor\n\t2 - Voltar");
+      break;
+
+    case Contrast:
+      _contrast = _handleSelection( // _handleContrast
+          "Opcoes:\n\t1 - Ajustar contraste\n\t2 - Voltar");
+      break;
+
+    default:
+      break;
+    }
+  }
 }
 
 string _stringfyBool(bool arg) { return arg ? "true" : "false"; }
@@ -49,6 +86,7 @@ bool Menu::_handleBool(string msg)
     cout
         << msg
         << endl;
+    cout << ">>> ";
     cin >> selected;
   } while (_validateInput(selected, 1, 2) == 0);
   if (selected == 1)
@@ -66,6 +104,7 @@ float Menu::_handleSelection(string msg)
     cout
         << msg
         << endl;
+    cout << ">>> ";
     cin >> selected;
   } while (_validateInput(selected, 1, 2) == 0);
   if (selected == 1)
@@ -75,6 +114,7 @@ float Menu::_handleSelection(string msg)
       cout
           << "Selecione a intensidade desejada entre 0.0 (0%) e 2.0 (200%)"
           << endl;
+      cout << ">>> ";
       cin >> value;
     } while (_validateInput(value, 0.f, 2.f) == -1.f);
     return value;
@@ -118,11 +158,13 @@ float Menu::_validateInput(float num, float min, float max)
 void Menu::_handleURI()
 {
   string uri;
-  cout << "Entre com a URL da imagem: ";
+  cout << "Entre com a URL da imagem:" << endl;
+  cout << ">>> ";
   cin >> uri;
   while (!regex_match(uri, regex("((http|https)://)(www.)?[a-zA-Z0-9@:%._\\+~#?&//=]{2,256}\\.[a-z]{2,6}\\b([-a-zA-Z0-9@:%._\\+~#?&//=]*)")))
   {
     cerr << "Erro: Entre com uma URL valida" << endl;
+    cout << ">>> ";
     cin >> uri;
   }
   _uri = uri;

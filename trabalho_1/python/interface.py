@@ -19,8 +19,8 @@ if __name__ == "__main__":
 
     # Instancia classe e carrega a URI
     ir = ImageResolver(uri)
-    # Baixa a imagem, armazena o BLOB e retorna uma copia
-    im = [ir.loadImageFromWeb()]
+    # Baixa a imagem e armazena o BLOB na classe
+    im = ir.loadImageFromWeb()
 
     if (faces == 'true'):
         # Mapeia os rostos na imagem
@@ -40,11 +40,17 @@ if __name__ == "__main__":
         im = map(ir.detailFilter, im)
 
     if (color != 1.0):
-        im = map(ir.colorFilter, im, color)
+        # A funcao map espera que todos os argumentos da funcao de iteracao 
+        # sejam vetores de mesmo comprimento, mas como o valor do modificador e
+        # uma constante utilizo uma lambda function para abstrair o segundo
+        # parametro da funcao anonima passada como argumento da funcao map
+        im = map(lambda arg: ir.colorFilter(im=arg, mod=color), im)
 
     if (contrast != 1.0):
-        im = map(contrastFilter, im, contrast)
+        im = map(lambda arg: ir.contrastFilter(im=arg, mod=contrast), im)
 
-    imName= map(ir.saveAs, im)
+    imName=[]
+    for i in range(len(im)):
+        imName.append(ir.saveAs(im=im[i], index=i))
     
     sys.stdout.write('\n'.join(imName))

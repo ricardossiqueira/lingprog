@@ -27,8 +27,19 @@ private:
       _smooth = false,
       _detail = false;
   float
-      _color = 0.f,
-      _contrast = 0.f;
+      _color = 1.f,
+      _contrast = 1.f;
+
+  enum _options
+  {
+    Faces = 1,
+    AR3x4,
+    Smooth,
+    Detail,
+    Color,
+    Contrast,
+    Save
+  };
 
   // Lida com selecoes booleanas (_faces, _3x4, _smooth, _detail)
   bool _handleBool(string msg);

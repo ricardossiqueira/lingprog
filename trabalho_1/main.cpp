@@ -25,7 +25,5 @@ int main(int argc, char *argv[])
 
   system(command.c_str());
 
-  cout << "sent: " << command;
-
   return 0;
 }

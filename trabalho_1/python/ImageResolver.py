@@ -50,7 +50,7 @@ class ImageResolver:
         else:
             req = requests.get(__self__.uri, stream=True)
             __self__.im = Image.open(req.raw)
-            return __self__.im
+            return [__self__.im]
 
     # Mapeia os valores de corte para os rostos encontrados nas imagens
     def mapFaceRect(__self__):
