@@ -1,6 +1,8 @@
 *png
 *jpg
 *jpeg
+!assets/edited.png
+!assets/original.png
 .vscode
 __pycache__
 tmp.log
