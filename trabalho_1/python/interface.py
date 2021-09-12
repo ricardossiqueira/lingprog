@@ -1,5 +1,5 @@
 '''
-Trabalho 1 - Linguagens de Programacao EL1
+Trabalho - Linguagens de Programacao
 Aluno: Ricardo Santos Siqueira
 DRE: 118167558
 Periodo: 2021.1
@@ -34,35 +34,17 @@ if __name__ == "__main__":
             im = ir.croppedIm
 
     if (smooth == 'true'):
-        tmp=[]
-        for elem in im:
-            # Aplica o filtro de cor para todas as subimagens em im
-            tmp.append(ir.smoothFilter(im=elem))
-        im=tmp
+        im = map(ir.smoothFilter, im)
 
     if (detail == 'true'):
-        tmp=[]
-        for elem in im:
-            # Aplica o filtro de cor para todas as subimagens em im
-            tmp.append(ir.detailFilter(im=elem))
-        im=tmp
+        im = map(ir.detailFilter, im)
 
     if (color != 1.0):
-        tmp=[]
-        for elem in im:
-            # Aplica o filtro de cor para todas as subimagens em im
-            tmp.append(ir.colorFilter(im=elem, mod=color))
-        im=tmp
+        im = map(ir.colorFilter, im, color)
 
     if (contrast != 1.0):
-        tmp=[]
-        for elem in im:
-            # Aplica o filtro de contraste para todas as subimagens em im
-            tmp.append(ir.contrastFilter(im=elem, mod=contrast))
-        im=tmp
+        im = map(contrastFilter, im, contrast)
 
-    imName=[]
-    for elem in im:
-        imName.append(ir.saveAs(im=elem, format='png'))
+    imName= map(ir.saveAs, im)
     
     sys.stdout.write('\n'.join(imName))
