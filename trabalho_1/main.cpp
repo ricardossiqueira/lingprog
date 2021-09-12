@@ -1,42 +1,23 @@
 #include <iostream>
 #include <string>
+#include "Menu.hpp"
 
 using namespace std;
 
-// Crop rostos na imagem
-//     Aplicar algum filtro
-//     Aspect ratio 3:4
-// Filter SMOOTH
-// Filter DETAIL
-// Enhance COLOR
-// Enhance CONTRAST
-
 int main(int argc, char *argv[])
 {
-  string options1 = "Opcoes:\n\t1 - Cortar apenas rostos\n\t2 - Prosseguir sem cortar";
-  string uri = "";
-  string selections;
+  const string logFile = "tmp.log";
 
-  enum optionsMap
-  {
-    To3x4,
-    Smooth,
-    Detail,
-    Color,
-    Contrast
-  };
+  string test;
+  // https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=668&q=80
 
-  cout << "Entre com a url da imagem: ";
-  cin >> uri;
-  cout << endl;
+  Menu menu = Menu();
+  menu.run();
+  string command = "python python/interface.py " + menu.parseCommand() + " > " + logFile;
 
-  while (uri != "")
-  {
-    cout << options1 << endl;
-    cout << ">> ";
-    cin >> selections;
-    uri = "";
-  }
+  system(command.c_str());
+
+  cout << "sent: " << command;
 
   return 0;
 }

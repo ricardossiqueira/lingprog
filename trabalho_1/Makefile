@@ -7,9 +7,12 @@ LD = $(CC)
 CFLAGS = -Wall 
 LFLAGS = $(CFLAGS)
 
-OBJS = main.o
+OBJS = main.o Menu.o
 
 TARGET = main
+
+Menu.o: Menu.cpp
+	$(CC) $(CFLAGS) $(PYFLAGS) -c Menu.cpp
 
 main.o: main.cpp
 	$(CC) $(CFLAGS) $(PYFLAGS) -c main.cpp

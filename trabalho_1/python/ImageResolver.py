@@ -50,6 +50,7 @@ class ImageResolver:
         else:
             req = requests.get(__self__.uri, stream=True)
             __self__.im = Image.open(req.raw)
+            return __self__.im
 
     # Mapeia os valores de corte para os rostos encontrados nas imagens
     def mapFaceRect(__self__):
@@ -135,12 +136,14 @@ class ImageResolver:
 
             __self__.__croppedIm.append(__self__.im.crop((i, j, k, l)))
 
-            __self__.__croppedIm3x4 = __self__.im.crop(
-                __self__.aspectRatio3x4(
-                    croppingParams=(i, j, k, l),
-                    pref=__self__.aspectMode(
-                        __self__.aspectRatio3x4(
-                            croppingParams=(i, j, k, l)
+            __self__.__croppedIm3x4.append(
+                __self__.im.crop(
+                    __self__.aspectRatio3x4(
+                        croppingParams=(i, j, k, l),
+                        pref=__self__.aspectMode(
+                            __self__.aspectRatio3x4(
+                                croppingParams=(i, j, k, l)
+                            )
                         )
                     )
                 )
@@ -170,7 +173,6 @@ class ImageResolver:
     def saveAs(__self__, im=None, format='PNG', index=None):
         if (im == None):
             im = __self__.im
-        im.save(
-            f'image{"" if (index == None) else index }.{format.lower()}',
-            format.upper()
-        )
+        imName = f'image{"" if (index == None) else index }.{format.lower()}'
+        im.save(imName, format.upper())
+        return imName
