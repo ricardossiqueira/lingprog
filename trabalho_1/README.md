@@ -12,11 +12,11 @@
 
 ## Objetivo
 
-  Programa para download e tratamento básico de imagens feito em C++ e [Python](./python/README.md).  
+  Programa para download e tratamento básico de imagens feito em C++ e [Python 3.9](./python/README.md).  
 
 ## Dependências
 
-Esse projeto depende de alguma bibliotecas python para funcionar, caso já não tenha instalado, favor instalar antes de tentar executar. Mais informações no [README do script Python](./python/README.md).
+Esse projeto depende de alguma bibliotecas Python para funcionar, caso já não tenha instalado, favor instalar antes de tentar executar. Mais informações no [README do script Python](./python/README.md).
 
 **Antes de compilar e executar tenha ceteza de visitar a referência acima.**
 
@@ -42,12 +42,12 @@ make clean
   Após a inicialização do programa o usuário inicialmente deve entrar com a URL referente a imagem que deseja utilizar. Uma vez inicializada corretamente a url o programa apresentará um menu com as opções disponíveis, sendo estas:
 
   1 - Cortar faces\
-  2 - Ajustar proporcao da imagem para 3:4\
+  2 - Ajustar proporção da imagem para 3:4\
   3 - [Filtro] Suavizar detalhes\
   4 - [Filtro] Realcar detalhes\
   5 - [Filtro] Ajustar cor\
   6 - [Filtro] Ajustar contraste\
-  7 - Salvar copias e sair
+  7 - Salvar cópias e sair
 
   Ao selecionar uma opção um submenu é exibido e o usuário entra com os parâmetros para executar a ação ou pode retornar ao menu principal.
 
@@ -69,4 +69,4 @@ make clean
 
 ## Créditos
 
-Esse programa utiliza o algoritimo [Haarcascade Frontal Face Alt2](https://github.com/opencv/opencv/blob/master/data/haarcascades/haarcascade_frontalface_alt2.xml) disponível na biblioteca OpenCV para detecção das faces nas imagens.
+Esse programa utiliza o algoritimo [Haarcascade Frontal Face Alt2](https://github.com/opencv/opencv/blob/master/data/haarcascades/haarcascade_frontalface_alt2.xml) disponível na biblioteca OpenCV para detecção facial.
