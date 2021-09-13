@@ -52,10 +52,10 @@ make clean
   O programa é finalizado ao selecionar a opção 7, correspondente a salvar as imagens geradas e sair do programa.
 
 ## Exemplo de imagem editada
-  **[Original](https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=668&q=80):** 
-  <img align="center" src="assets/original.png" height=300/>
-  **Editada:** 
-  <img align="center" src="assets/edited.png" height=300/>
+
+   [Original](https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=668&q=80) | Editada
+  :-:|:-:
+  ![Original](assets/original.png "Original") | ![Editada](assets/edited.png "Editada")
   
   Parâmetros da edição: Cortar face, ajuste 3:4, suavizar detalhes, ajuste de cor 1.3 (130%) e ajuste de contraste 1.1 (110%).
 
