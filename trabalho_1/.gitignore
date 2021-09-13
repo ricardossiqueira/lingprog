@@ -3,6 +3,8 @@
 *jpeg
 !assets/edited.png
 !assets/original.png
+!ricardo_santos_siqueira/assets/edited.png
+!ricardo_santos_siqueira/assets/original.png
 .vscode
 __pycache__
 tmp.log
