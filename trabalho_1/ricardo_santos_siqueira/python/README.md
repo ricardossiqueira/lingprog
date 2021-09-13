@@ -52,4 +52,4 @@
 
 ## Créditos
 
-Esse programa utiliza o algoritimo [Haarcascade Frontal Face Alt2](https://github.com/opencv/opencv/blob/master/data/haarcascades/haarcascade_frontalface_alt2.xml) disponível na biblioteca OpenCV para detecção das faces nas imagens.
+Esse programa utiliza o algoritimo [Haarcascade Frontal Face Alt2](https://github.com/opencv/opencv/blob/master/data/haarcascades/haarcascade_frontalface_alt2.xml) disponível na biblioteca OpenCV para detecção facial.
