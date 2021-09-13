@@ -24,7 +24,7 @@
   ```console
     pipenv install
 
-    # Caso nao possua pip env instalado pode instalar com o seguinte comando:
+    # Caso nao possua o pipenv instalado, pode instala-lo com seguinte comando:
     # pip install pipenv
   ```
   Após executar esse comando inicie o ambiente **pipenv** com o comando

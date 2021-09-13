@@ -35,6 +35,8 @@ make clean
 ## Utilização
 
 ```console
+# Antes de executar tenha certeza que o ambiente pipenv está ativo
+
 ./main
 ```
   Após a inicialização do programa o usuário inicialmente deve entrar com a URL referente a imagem que deseja utilizar. Uma vez inicializada corretamente a url o programa apresentará um menu com as opções disponíveis, sendo estas:
