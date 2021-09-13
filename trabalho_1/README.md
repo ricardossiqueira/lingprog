@@ -14,6 +14,12 @@
 
   Programa para download e tratamento básico de imagens feito em C++ e [Python](./python/README.md).  
 
+## Dependências
+
+Esse projeto depende de alguma bibliotecas python para funcionar, caso já não tenha instalado, favor instalar antes de tentar executar. Mais informações no [README do script Python](./python/README.md).
+
+**Antes de compilar e executar tenha ceteza de visitar a referência acima.**
+
 ## Compilação
 
 ```console
@@ -48,7 +54,6 @@ make clean
 ## Exemplo de imagem editada
   **[Original](https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=668&q=80):** 
   <img align="center" src="assets/original.png" height=300/>
-  
   **Editada:** 
   <img align="center" src="assets/edited.png" height=300/>
   
@@ -59,3 +64,7 @@ make clean
 [How to make std::cin take only numbers (stackoverflow)](https://stackoverflow.com/questions/10828937/how-to-make-cin-take-only-numbers)
 
 [Call destructor in C++](https://www.delftstack.com/howto/cpp/call-destructor-in-cpp/)
+
+## Créditos
+
+Esse programa utiliza o algoritimo [Haarcascade Frontal Face Alt2](https://github.com/opencv/opencv/blob/master/data/haarcascades/haarcascade_frontalface_alt2.xml) disponível na biblioteca OpenCV para detecção das faces nas imagens.
