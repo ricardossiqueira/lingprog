@@ -1,3 +1,0 @@
-Nome: filme
-Produtora: produtora
-Nota: 4
