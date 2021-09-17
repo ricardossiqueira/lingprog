@@ -66,6 +66,7 @@ int main(int argc, char const *argv[])
     Sair
   };
 
+  int currArg = 1;
   int option;
   string fileName = "db.txt";
   Catalogo catalog;
@@ -86,40 +87,35 @@ int main(int argc, char const *argv[])
 
   do
   {
-    option = handleSelectFromMenu();
+    option = (argc > currArg) ? stoi(argv[currArg]) : handleSelectFromMenu();
 
     switch (option)
     {
     case AdicionarFilme:
     {
-      if (handleBoolSelection("Opcoes:\n\t1 - Adicionar filme\n\t2 - Voltar"))
-      {
-        vector<Filme> tmpFilmes;
-        Filme tmpFilme;
-        cout
-            << "Entre com os dados do filme"
-            << endl
-            << "Nome [Enter]"
-            << endl
-            << "Produtora [Enter]"
-            << endl
-            << "Nota [Enter]"
-            << endl;
-        cin >> tmpFilme;
-        tmpFilmes.push_back(tmpFilme);
-        catalog.sortedPut(tmpFilmes);
-      }
+      vector<Filme> tmpFilmes;
+      Filme tmpFilme;
+      cout
+          << "Entre com os dados do filme"
+          << endl
+          << "Nome [Enter]"
+          << endl
+          << "Produtora [Enter]"
+          << endl
+          << "Nota [Enter]"
+          << endl;
+      cin >> tmpFilme;
+      tmpFilmes.push_back(tmpFilme);
+      catalog.sortedPut(tmpFilmes);
+      break;
     }
 
     case RemoverFilme:
     {
-      if (handleBoolSelection("Opcoes:\n\t1 - Remover filme\n\t2 - Voltar"))
-      {
-        string nome;
-        cout << "Entre com o nome do filme a ser removido: ";
-        cin >> nome;
-        catalog -= nome;
-      }
+      string nome;
+      cout << "Entre com o nome do filme a ser removido: ";
+      cin >> nome;
+      catalog -= nome;
       break;
     }
 
@@ -184,6 +180,9 @@ int main(int argc, char const *argv[])
     default: // Esse bloco nunca deve executar
       break;
     }
+
+    if (currArg <= argc)
+      option = stoi(argv[currArg++]);
 
   } while (option != Sair);
 

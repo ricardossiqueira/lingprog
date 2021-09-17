@@ -29,21 +29,17 @@ make clean
 ## Utilização
 
 ```console
-./main
+./main <ARGS>
 ```
+  Ao iniciar o programa um menu contendo todas as 8 possíveis opções é exibido. Após selecionar uma opção o usuário deve entrar com os parâmetros necessários para o item selecionado.
 
-  Ao iniciar o programa um menu contendo todas as 8 possíveis opções é exibido. 
-  Cada item possui um submenu onde o usuário pode confirmar sua escolha e depois
-  entrar com os parâmetros necessários para execução do programa.\
+  **Os dados só são salvos caso o programa finalize com a opção adequada, logo caso o usuário finalize o programa com o comando ```Ctrl+c```, por exemplo os dados serão perdidos!**
 
-
-  **Os dados só são salvos caso o programa finalize com a opção adequada, logo caso o usuário finalize o programa com o comando ```Ctrl+c```, por exemplo os dados serão perdidos!**\
-
-  Opções dispoiníveis:\
+  Opções dispoiníveis:
   ```
   Opcoes:
   1 - Adicionar filme.
-  2 - Remover filme.
+  2 - Remover filme.    
   3 - Buscar filme.
   4 - Editar produtora.
   5 - Editar nota.
@@ -51,6 +47,19 @@ make clean
   7 - Exibir filme com maior nota.
   8 - Salvar e sair.
   ```
+
+  O usuário também pode optar por passar valores via ```argc``` e ```argv``` contúdo essa prática não é recomendada para fluxos mais complexos, tendo em vista que opções que exijam entradas do mesmo como "Adicionar filme.", por exemplo transferirão o controle para o mesmo.
+
+  **Caso de uso:**
+
+  Para verificar a lista de filmes, por exemplo, o usuário pode utilizar a comodidade dos ```argc``` e ```argv```, como comando exemplo a seguir:
+
+  ```console
+  ./main 6 8
+
+  # Executa as opcoes 6 e 8
+  ```
+
 
 ## Referências externas
 

@@ -40,20 +40,3 @@ bool validInputRange(int num, int min, int max)
   }
   return false;
 }
-
-bool handleBoolSelection(string msg)
-{
-  unsigned selected = 0;
-  do
-  {
-    cout
-        << msg
-        << endl;
-    cout << ">>> ";
-    selected = requireValidNumber();
-  } while (validInputRange(selected, 1, 2));
-  if (selected == 1)
-    return true;
-  else
-    return false;
-}

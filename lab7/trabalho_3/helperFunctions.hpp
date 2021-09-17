@@ -16,6 +16,5 @@ using namespace std;
 
 int requireValidNumber();
 bool validInputRange(int num, int min, int max);
-bool handleBoolSelection(string msg);
 
 #endif // HELPERFUNCTIONS_HPP
