@@ -12,24 +12,9 @@
 #include "BinaryTree.hpp"
 #include "Paciente.hpp"
 #include <exception>
+#include <string>
 
 using namespace std;
-
-class PacientAlreadyExists : public exception
-{
-  virtual const char *what() const throw()
-  {
-    return "Error: Paciente ja cadastrado!";
-  }
-};
-
-class PacientNotFound : public exception
-{
-  virtual const char *what() const throw()
-  {
-    return "Error: Paciente nao encontrado!";
-  }
-};
 
 class Register
 {

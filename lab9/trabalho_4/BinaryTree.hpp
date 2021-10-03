@@ -10,7 +10,6 @@
 #define BINARYTREE_HPP
 
 #include <iostream>
-#include <iomanip>
 #include <ostream>
 #include "Paciente.hpp"
 

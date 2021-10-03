@@ -7,14 +7,16 @@
  */
 
 #include "Cadastro.hpp"
+#include "NotFoundException.hpp"
+#include "AlreadyExistsException.hpp"
 
 Register::Register(BinaryTree<Pacient> *root) : _tree(root){};
 
 void Register::addPacient(Pacient *pacient)
 {
-  BinaryTree<Pacient> *ptr = _tree->operator+=(pacient);
+  BinaryTree<Pacient> *ptr = (*_tree) += (pacient);
   if (ptr == nullptr)
-    throw PacientAlreadyExists();
+    throw AlreadyExistsException();
   else
     cout
         << "Paciente "
@@ -25,9 +27,9 @@ void Register::addPacient(Pacient *pacient)
 
 void Register::findPacient(const string name)
 {
-  BinaryTree<Pacient> *ptr = _tree->operator()(name);
+  BinaryTree<Pacient> *ptr = (*_tree)(name);
   if (ptr == nullptr)
-    throw PacientNotFound();
+    throw NotFoundException();
   else
     cout
         << "Paciente encontrado!"
@@ -39,4 +41,12 @@ void Register::findPacient(const string name)
         << endl
         << "Genero: " << ptr->getSelf()->getGender()
         << endl;
+}
+
+void Register::listPacients() const
+{
+  cout
+      << "Lista de pacientes"
+      << endl
+      << (*_tree);
 }
