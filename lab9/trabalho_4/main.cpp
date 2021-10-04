@@ -8,7 +8,7 @@
 
 #include <iostream>
 #include <string>
-#include <exception>
+#include <stdexcept>
 #include "Cadastro.hpp"
 #include "Paciente.hpp"
 #include "BinaryTree.hpp"
@@ -78,7 +78,7 @@ int main(int argc, char const *argv[])
       string name, gender;
       unsigned int age;
       int pacientType;
-      Pacient *ptr = nullptr;
+      Pacient *ptr = NULL;
 
       cout << "Nome do paciente:" << endl
            << ">>> ";
@@ -142,6 +142,7 @@ int main(int argc, char const *argv[])
       cout << "Entre com o nome do paciente a ser buscado: " << endl
            << ">>> ";
       cin >> name;
+
       try
       {
         reg.findPacient(name);

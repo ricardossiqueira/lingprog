@@ -15,7 +15,7 @@ Register::Register(BinaryTree<Pacient> *root) : _tree(root){};
 void Register::addPacient(Pacient *pacient)
 {
   BinaryTree<Pacient> *ptr = (*_tree) += (pacient);
-  if (ptr == nullptr)
+  if (ptr == NULL)
     throw AlreadyExistsException();
   else
     cout
@@ -27,19 +27,22 @@ void Register::addPacient(Pacient *pacient)
 
 void Register::findPacient(const string name)
 {
-  BinaryTree<Pacient> *ptr = (*_tree)(name);
-  if (ptr == nullptr)
+  BinaryTree<Pacient> *ptr = _tree->operator()(name);
+  if (ptr == NULL)
+  {
     throw NotFoundException();
+  }
   else
     cout
         << "Paciente encontrado!"
-        << endl
         << endl
         << "Nome: " << ptr->getSelf()->getName()
         << endl
         << "Idade: " << ptr->getSelf()->getAge()
         << endl
         << "Genero: " << ptr->getSelf()->getGender()
+        << endl
+        << ptr->getSelf()->getInfo()
         << endl;
 }
 
