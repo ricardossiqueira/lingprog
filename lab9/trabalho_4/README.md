@@ -7,7 +7,7 @@
 ## Ambiente de desenvolvimento
 
 **OS:** Manjaro Linux x86_64\
-**Kernel:** 5.13.12-1-MANJARO\
+**Kernel:** 5.13.13-1-MANJARO\
 **Shell:** fish **3.3**.1
 
 ## Compilação
@@ -15,13 +15,11 @@
 ```console
 make all
 ```
-
 ## Limpeza
 
 ```console
 make clean
 ```
-
 ## Utilização
 
 ```console
