@@ -48,30 +48,31 @@ make clean
 
   ```console
   ./main 1 3 4
+  ```
 
-  # Executa as opcoes 1, 3 e 4.
-  # Output esperado:
-  #
-  # $ make -s all; ./main 1 3 4; make -s clean;
-  # Nome do paciente:
-  # >>> foo
-  # Idade do paciente:
-  # >>> 23
-  # Genero do paciente:
-  # >>> bar
-  # Especialidade desejada:
-  # 1- Pediatria.
-  # 2- Cardiologia.
-  # >>> 1
-  # Nome dos pais do paciente:
-  # >>> baz
-  # Paciente foo adicionado com sucesso!
-  # Lista de pacientes
-  # Nome: foo
-  # Idade: 23
-  # Genero: bar
-  # Pais: baz
-  # $
+  O exemplo acima executa as opcoes 1, 3 e 4. Nesse caso o output esperado:
+  
+  ```console
+  $ make -s all; ./main 1 3 4; make -s clean;
+  Nome do paciente:
+  >>> foo
+  Idade do paciente:
+  >>> 23
+  Genero do paciente:
+  >>> bar
+  Especialidade desejada:
+  1- Pediatria.
+  2- Cardiologia.
+  >>> 1
+  Nome dos pais do paciente:
+  >>> baz
+  Paciente foo adicionado com sucesso!
+  Lista de pacientes
+  Nome: foo
+  Idade: 23
+  Genero: bar
+  Pais: baz
+  $
   ```
 ## Referências externas
 
