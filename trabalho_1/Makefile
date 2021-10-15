@@ -12,18 +12,18 @@ OBJS = main.o Menu.o FileResolver.o
 TARGET = main
 
 FileResolver.o: FileResolver.cpp
-	$(CC) $(CFLAGS) $(PYFLAGS) -c FileResolver.cpp
+	$(CC) $(CFLAGS) -c FileResolver.cpp
 
 Menu.o: Menu.cpp
-	$(CC) $(CFLAGS) $(PYFLAGS) -c Menu.cpp
+	$(CC) $(CFLAGS) -c Menu.cpp
 
 main.o: main.cpp
-	$(CC) $(CFLAGS) $(PYFLAGS) -c main.cpp
+	$(CC) $(CFLAGS) -c main.cpp
 
 all: $(TARGET)
 
 $(TARGET): $(OBJS)
-	$(LD) $(LFLAGS) $(PYFLAGS) -o $(TARGET) $(OBJS) 
+	$(LD) $(LFLAGS) -o $(TARGET) $(OBJS) 
 
 clean:
 	rm $(OBJS) $(TARGET)
