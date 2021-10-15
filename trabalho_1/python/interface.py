@@ -49,6 +49,9 @@ if __name__ == "__main__":
     if (contrast != 1.0):
         im = map(lambda arg: ir.contrastFilter(im=arg, mod=contrast), im)
 
+    # Salvando os blobs como png
     imName = [ir.saveAs(im=name, index=i) for i, name in enumerate(im)]
 
+    # Ecoando os nomes para o sistema, dessa forma poderao ser redirecionados
+    # pelo operador '>' do UNIX
     sys.stdout.write('\n'.join(imName))

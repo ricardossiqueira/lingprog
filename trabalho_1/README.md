@@ -55,11 +55,14 @@ make clean
 
 ## Exemplo de imagem editada
 
-   [Original](https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=668&q=80) | Editada
-  :-:|:-:
-  ![Original](assets/original.png "Original") | ![Editada](assets/edited.png "Editada")
+   | [Original](https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=668&q=80) |                 Editada                 |
+   | :-----------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :-------------------------------------: |
+   |                                                                ![Original](assets/original.png "Original")                                                                | ![Editada](assets/edited.png "Editada") |
   
   Parâmetros da edição: Cortar face, ajuste 3:4, suavizar detalhes, ajuste de cor 1.3 (130%) e ajuste de contraste 1.1 (110%).
+
+  Sugestão de imagem para teste do programa: [link](https://images.unsplash.com/photo-1628891890377-57dba2715caf?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1171&q=80).
+
 
 ## Referências externas
 

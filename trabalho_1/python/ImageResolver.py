@@ -39,6 +39,49 @@ class ImageResolver:
         __self__.__croppedIm = []
         __self__.__croppedIm3x4 = []
 
+    '''
+    Metodos "privados"
+    '''
+
+    # Algoritimo para ajustar o aspect ratio da imagem para 3:4. Pode ser
+    # ajustado por soma ou subtracao no tamanho do corte, sendo o default a soma
+    def __aspectRatio3x4(__self__, croppingParams, pref='add'):
+        x, y, w, h = croppingParams
+
+        done = False
+        while (not done):
+            ratio = (w-x)/(h-y)
+            if (ratio > 3/4):
+                if (pref == 'sub'):
+                    w -= 1
+                elif (pref == 'add'):
+                    h += 1
+            elif (ratio < 3/4):
+                if (pref == 'sub'):
+                    h -= 1
+                elif (pref == 'add'):
+                    w += 1
+            else:
+                done = True
+
+        return __self__.offsetAdjust((x, y, w, h), croppingParams)
+
+    # Melhor ajuste para o ajuste do aspect ratio da imagem para 3:4
+    def __aspectMode(__self__, sizes):
+        # se o crop por adicao estourar o limite da imagem retorna indicando para
+        # fazer o crop por subtracao
+        x, y, w, h = __self__.__aspectRatio3x4(sizes, pref='add')
+        max_w, max_h = __self__.im.size
+
+        if (x < 0 or y < 0 or w > max_w or h > max_h):
+            return "sub"
+        else:
+            return "add"
+
+    '''
+    Metodos "publicos"
+    '''
+
     # Carrega uma imagem da internet dada uma URI
     def loadImageFromWeb(__self__):
         try:
@@ -70,41 +113,6 @@ class ImageResolver:
         skewY = h0 - hf
 
         return xf+(skewX//2), yf+(skewY//2), wf+(skewX//2), hf+(skewY//2)
-
-    # Algoritimo para ajustar o aspect ratio da imagem para 3:4. Pode ser
-    # ajustado por soma ou subtracao no tamanho do corte, sendo o default a soma
-    def aspectRatio3x4(__self__, croppingParams, pref='add'):
-        x, y, w, h = croppingParams
-
-        done = False
-        while (not done):
-            ratio = (w-x)/(h-y)
-            if (ratio > 3/4):
-                if (pref == 'sub'):
-                    w -= 1
-                elif (pref == 'add'):
-                    h += 1
-            elif (ratio < 3/4):
-                if (pref == 'sub'):
-                    h -= 1
-                elif (pref == 'add'):
-                    w += 1
-            else:
-                done = True
-
-        return __self__.offsetAdjust((x, y, w, h), croppingParams)
-
-    # Melhor ajuste para o ajuste do aspect ratio da imagem para 3:4
-    def aspectMode(__self__, sizes):
-        # se o crop por adicao estourar o limite da imagem retorna indicando para
-        # fazer o crop por subtracao
-        x, y, w, h = __self__.aspectRatio3x4(sizes, pref='add')
-        max_w, max_h = __self__.im.size
-
-        if (x < 0 or y < 0 or w > max_w or h > max_h):
-            return "sub"
-        else:
-            return "add"
 
     # Aplicando os algoritimos para lidar com o corte das imagens
     def cropImage(__self__):
@@ -138,10 +146,10 @@ class ImageResolver:
 
             __self__.__croppedIm3x4.append(
                 __self__.im.crop(
-                    __self__.aspectRatio3x4(
+                    __self__.__aspectRatio3x4(
                         croppingParams=(i, j, k, l),
-                        pref=__self__.aspectMode(
-                            __self__.aspectRatio3x4(
+                        pref=__self__.__aspectMode(
+                            __self__.__aspectRatio3x4(
                                 croppingParams=(i, j, k, l)
                             )
                         )
